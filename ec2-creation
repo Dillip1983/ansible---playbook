@@ -1,0 +1,15 @@
+--- # creation a new ec2 instance from ansible playbook
+- hosts: localhost
+  gather_facts: True
+  tasks:
+    - name: creating ec2 instance from ansible book
+      ec2:
+        key_name: ansible1
+        region: ap-south-1
+        instance_type: t2.micro
+        image: ami-01a4f99c4ac11b03c
+        wait: yes
+        group: default
+        count: 1
+        vpc_subnet_id: subnet-0211e1d10b9fd7a4a
+        assign_public_ip: yes
